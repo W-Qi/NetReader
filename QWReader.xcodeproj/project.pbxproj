@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC04911E1F48A5F6008C314E /* UIView+QWEIEditFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = FC04911D1F48A5F6008C314E /* UIView+QWEIEditFrame.m */; };
+		FC0491251F48B4AC008C314E /* QWEINetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491241F48B4AC008C314E /* QWEINetWorkManager.m */; };
+		FC0491281F48B560008C314E /* QWEISearchBook.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491271F48B560008C314E /* QWEISearchBook.m */; };
+		FC04912C1F48B814008C314E /* QWEIBook.m in Sources */ = {isa = PBXBuildFile; fileRef = FC04912B1F48B814008C314E /* QWEIBook.m */; };
+		FC0491301F48BF90008C314E /* QWEIBooksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC04912F1F48BF90008C314E /* QWEIBooksCell.m */; };
+		FC0491331F4913FD008C314E /* QWEIReader.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491321F4913FD008C314E /* QWEIReader.m */; };
+		FC0491361F4914DF008C314E /* QWEIGetBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491351F4914DF008C314E /* QWEIGetBookDetail.m */; };
+		FC0491391F4916B3008C314E /* QWEIBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491381F4916B3008C314E /* QWEIBookDetail.m */; };
+		FC0491421F491C07008C314E /* QWEIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491411F491C07008C314E /* QWEIPage.m */; };
+		FC0917271F6633250081AABA /* QWEIFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0917261F6633250081AABA /* QWEIFrameParser.m */; };
+		FC1D94111F48844C008F0717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94101F48844C008F0717 /* main.m */; };
+		FC1D94141F48844C008F0717 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94131F48844C008F0717 /* AppDelegate.m */; };
+		FC1D941A1F48844C008F0717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1D94181F48844C008F0717 /* Main.storyboard */; };
+		FC1D941D1F48844C008F0717 /* QWReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC1D941B1F48844C008F0717 /* QWReader.xcdatamodeld */; };
+		FC1D941F1F48844C008F0717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1D941E1F48844C008F0717 /* Assets.xcassets */; };
+		FC1D94221F48844C008F0717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1D94201F48844C008F0717 /* LaunchScreen.storyboard */; };
+		FC1D942B1F488516008F0717 /* QWEIReaderMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D942A1F488516008F0717 /* QWEIReaderMainController.m */; };
+		FC1D943D1F489F2B008F0717 /* QWEISearchBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D943C1F489F2B008F0717 /* QWEISearchBookController.m */; };
+		FC393F7E1F64E2A300F37DD8 /* QWEIBookSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F7D1F64E2A300F37DD8 /* QWEIBookSource.m */; };
+		FC393F841F64FD7A00F37DD8 /* QWEIBookChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F831F64FD7A00F37DD8 /* QWEIBookChapter.m */; };
+		FC393F871F6505FF00F37DD8 /* QWEIBookContent.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F861F6505FF00F37DD8 /* QWEIBookContent.m */; };
+		FC393F8D1F6513DF00F37DD8 /* QWEIBookLinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F8C1F6513DF00F37DD8 /* QWEIBookLinkController.m */; };
+		FC393F901F65270300F37DD8 /* QWEIBookChapterController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F8F1F65270300F37DD8 /* QWEIBookChapterController.m */; };
+		FC393F941F65598800F37DD8 /* QWEIReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F931F65598800F37DD8 /* QWEIReadViewController.m */; };
+		FC393F971F65599F00F37DD8 /* QWEIReadView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F961F65599F00F37DD8 /* QWEIReadView.m */; };
+		FC393F9B1F662AF800F37DD8 /* QWEIFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FC393F9A1F662AF800F37DD8 /* QWEIFrameParserConfig.m */; };
+		FC70E1041F87DEAA00BF31C0 /* QWEIMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FC70E1031F87DEAA00BF31C0 /* QWEIMenu.m */; };
+		FD5A03836455431AF7719825 /* libPods-QWReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A56BFCAC519896EF3A64F04B /* libPods-QWReader.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		26A783357485E16A21F9339F /* Pods-QWReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QWReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QWReader/Pods-QWReader.debug.xcconfig"; sourceTree = "<group>"; };
+		A56BFCAC519896EF3A64F04B /* libPods-QWReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QWReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F601339E24CA533FA2DE1471 /* Pods-QWReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QWReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QWReader/Pods-QWReader.release.xcconfig"; sourceTree = "<group>"; };
+		FC04911C1F48A5F6008C314E /* UIView+QWEIEditFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QWEIEditFrame.h"; sourceTree = "<group>"; };
+		FC04911D1F48A5F6008C314E /* UIView+QWEIEditFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QWEIEditFrame.m"; sourceTree = "<group>"; };
+		FC0491231F48B4AC008C314E /* QWEINetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEINetWorkManager.h; sourceTree = "<group>"; };
+		FC0491241F48B4AC008C314E /* QWEINetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEINetWorkManager.m; sourceTree = "<group>"; };
+		FC0491261F48B560008C314E /* QWEISearchBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEISearchBook.h; sourceTree = "<group>"; };
+		FC0491271F48B560008C314E /* QWEISearchBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEISearchBook.m; sourceTree = "<group>"; };
+		FC04912A1F48B814008C314E /* QWEIBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBook.h; sourceTree = "<group>"; };
+		FC04912B1F48B814008C314E /* QWEIBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBook.m; sourceTree = "<group>"; };
+		FC04912E1F48BF90008C314E /* QWEIBooksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBooksCell.h; sourceTree = "<group>"; };
+		FC04912F1F48BF90008C314E /* QWEIBooksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBooksCell.m; sourceTree = "<group>"; };
+		FC0491311F4913FD008C314E /* QWEIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIReader.h; sourceTree = "<group>"; };
+		FC0491321F4913FD008C314E /* QWEIReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIReader.m; sourceTree = "<group>"; };
+		FC0491341F4914DF008C314E /* QWEIGetBookDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIGetBookDetail.h; sourceTree = "<group>"; };
+		FC0491351F4914DF008C314E /* QWEIGetBookDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIGetBookDetail.m; sourceTree = "<group>"; };
+		FC0491371F4916B3008C314E /* QWEIBookDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookDetail.h; sourceTree = "<group>"; };
+		FC0491381F4916B3008C314E /* QWEIBookDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookDetail.m; sourceTree = "<group>"; };
+		FC0491401F491C07008C314E /* QWEIPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIPage.h; sourceTree = "<group>"; };
+		FC0491411F491C07008C314E /* QWEIPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIPage.m; sourceTree = "<group>"; };
+		FC0917241F6631780081AABA /* QWReader_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QWReader_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		FC0917251F6633250081AABA /* QWEIFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIFrameParser.h; sourceTree = "<group>"; };
+		FC0917261F6633250081AABA /* QWEIFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIFrameParser.m; sourceTree = "<group>"; };
+		FC1D940C1F48844C008F0717 /* QWReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QWReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1D94101F48844C008F0717 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FC1D94121F48844C008F0717 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FC1D94131F48844C008F0717 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FC1D94191F48844C008F0717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC1D941C1F48844C008F0717 /* QWReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QWReader.xcdatamodel; sourceTree = "<group>"; };
+		FC1D941E1F48844C008F0717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC1D94211F48844C008F0717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC1D94231F48844C008F0717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC1D94291F488516008F0717 /* QWEIReaderMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIReaderMainController.h; sourceTree = "<group>"; };
+		FC1D942A1F488516008F0717 /* QWEIReaderMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIReaderMainController.m; sourceTree = "<group>"; };
+		FC1D943B1F489F2B008F0717 /* QWEISearchBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEISearchBookController.h; sourceTree = "<group>"; };
+		FC1D943C1F489F2B008F0717 /* QWEISearchBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEISearchBookController.m; sourceTree = "<group>"; };
+		FC393F7C1F64E2A300F37DD8 /* QWEIBookSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookSource.h; sourceTree = "<group>"; };
+		FC393F7D1F64E2A300F37DD8 /* QWEIBookSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookSource.m; sourceTree = "<group>"; };
+		FC393F821F64FD7A00F37DD8 /* QWEIBookChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookChapter.h; sourceTree = "<group>"; };
+		FC393F831F64FD7A00F37DD8 /* QWEIBookChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookChapter.m; sourceTree = "<group>"; };
+		FC393F851F6505FF00F37DD8 /* QWEIBookContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookContent.h; sourceTree = "<group>"; };
+		FC393F861F6505FF00F37DD8 /* QWEIBookContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookContent.m; sourceTree = "<group>"; };
+		FC393F8B1F6513DF00F37DD8 /* QWEIBookLinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookLinkController.h; sourceTree = "<group>"; };
+		FC393F8C1F6513DF00F37DD8 /* QWEIBookLinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookLinkController.m; sourceTree = "<group>"; };
+		FC393F8E1F65270300F37DD8 /* QWEIBookChapterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIBookChapterController.h; sourceTree = "<group>"; };
+		FC393F8F1F65270300F37DD8 /* QWEIBookChapterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIBookChapterController.m; sourceTree = "<group>"; };
+		FC393F921F65598800F37DD8 /* QWEIReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIReadViewController.h; sourceTree = "<group>"; };
+		FC393F931F65598800F37DD8 /* QWEIReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIReadViewController.m; sourceTree = "<group>"; };
+		FC393F951F65599F00F37DD8 /* QWEIReadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIReadView.h; sourceTree = "<group>"; };
+		FC393F961F65599F00F37DD8 /* QWEIReadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIReadView.m; sourceTree = "<group>"; };
+		FC393F991F662AF800F37DD8 /* QWEIFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIFrameParserConfig.h; sourceTree = "<group>"; };
+		FC393F9A1F662AF800F37DD8 /* QWEIFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIFrameParserConfig.m; sourceTree = "<group>"; };
+		FC70E1021F87DEAA00BF31C0 /* QWEIMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QWEIMenu.h; sourceTree = "<group>"; };
+		FC70E1031F87DEAA00BF31C0 /* QWEIMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QWEIMenu.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC1D94091F48844C008F0717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD5A03836455431AF7719825 /* libPods-QWReader.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1660B4C0E52C16017C888FFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26A783357485E16A21F9339F /* Pods-QWReader.debug.xcconfig */,
+				F601339E24CA533FA2DE1471 /* Pods-QWReader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		25BED530612D95ED9ED18830 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A56BFCAC519896EF3A64F04B /* libPods-QWReader.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC04911B1F48A58B008C314E /* Utili */ = {
+			isa = PBXGroup;
+			children = (
+				FC04911C1F48A5F6008C314E /* UIView+QWEIEditFrame.h */,
+				FC04911D1F48A5F6008C314E /* UIView+QWEIEditFrame.m */,
+			);
+			name = Utili;
+			sourceTree = "<group>";
+		};
+		FC04911F1F48B426008C314E /* NewWorking */ = {
+			isa = PBXGroup;
+			children = (
+				FC0491231F48B4AC008C314E /* QWEINetWorkManager.h */,
+				FC0491241F48B4AC008C314E /* QWEINetWorkManager.m */,
+				FC0491261F48B560008C314E /* QWEISearchBook.h */,
+				FC0491271F48B560008C314E /* QWEISearchBook.m */,
+				FC0491341F4914DF008C314E /* QWEIGetBookDetail.h */,
+				FC0491351F4914DF008C314E /* QWEIGetBookDetail.m */,
+				FC0491401F491C07008C314E /* QWEIPage.h */,
+				FC0491411F491C07008C314E /* QWEIPage.m */,
+			);
+			name = NewWorking;
+			sourceTree = "<group>";
+		};
+		FC0491291F48B7CE008C314E /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				FC04912A1F48B814008C314E /* QWEIBook.h */,
+				FC04912B1F48B814008C314E /* QWEIBook.m */,
+				FC0491371F4916B3008C314E /* QWEIBookDetail.h */,
+				FC0491381F4916B3008C314E /* QWEIBookDetail.m */,
+				FC393F7C1F64E2A300F37DD8 /* QWEIBookSource.h */,
+				FC393F7D1F64E2A300F37DD8 /* QWEIBookSource.m */,
+				FC393F821F64FD7A00F37DD8 /* QWEIBookChapter.h */,
+				FC393F831F64FD7A00F37DD8 /* QWEIBookChapter.m */,
+				FC393F851F6505FF00F37DD8 /* QWEIBookContent.h */,
+				FC393F861F6505FF00F37DD8 /* QWEIBookContent.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		FC04912D1F48BF7A008C314E /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				FC70E0FE1F87D62C00BF31C0 /* Menu */,
+				FC0491311F4913FD008C314E /* QWEIReader.h */,
+				FC0491321F4913FD008C314E /* QWEIReader.m */,
+				FC393F8B1F6513DF00F37DD8 /* QWEIBookLinkController.h */,
+				FC393F8C1F6513DF00F37DD8 /* QWEIBookLinkController.m */,
+				FC393F8E1F65270300F37DD8 /* QWEIBookChapterController.h */,
+				FC393F8F1F65270300F37DD8 /* QWEIBookChapterController.m */,
+			);
+			name = "New Group1";
+			sourceTree = "<group>";
+		};
+		FC1D94031F48844C008F0717 = {
+			isa = PBXGroup;
+			children = (
+				FC1D940E1F48844C008F0717 /* QWReader */,
+				FC1D940D1F48844C008F0717 /* Products */,
+				1660B4C0E52C16017C888FFD /* Pods */,
+				25BED530612D95ED9ED18830 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FC1D940D1F48844C008F0717 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC1D940C1F48844C008F0717 /* QWReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC1D940E1F48844C008F0717 /* QWReader */ = {
+			isa = PBXGroup;
+			children = (
+				FC393F981F662ACF00F37DD8 /* New Group3 */,
+				FC393F911F65596E00F37DD8 /* New Group2 */,
+				FC04912D1F48BF7A008C314E /* New Group1 */,
+				FC0491291F48B7CE008C314E /* New Group */,
+				FC04911F1F48B426008C314E /* NewWorking */,
+				FC04911B1F48A58B008C314E /* Utili */,
+				FC1D94291F488516008F0717 /* QWEIReaderMainController.h */,
+				FC1D942A1F488516008F0717 /* QWEIReaderMainController.m */,
+				FC1D943B1F489F2B008F0717 /* QWEISearchBookController.h */,
+				FC1D943C1F489F2B008F0717 /* QWEISearchBookController.m */,
+				FC04912E1F48BF90008C314E /* QWEIBooksCell.h */,
+				FC04912F1F48BF90008C314E /* QWEIBooksCell.m */,
+				FC1D94121F48844C008F0717 /* AppDelegate.h */,
+				FC1D94131F48844C008F0717 /* AppDelegate.m */,
+				FC0917241F6631780081AABA /* QWReader_Prefix.pch */,
+				FC1D94181F48844C008F0717 /* Main.storyboard */,
+				FC1D941E1F48844C008F0717 /* Assets.xcassets */,
+				FC1D94201F48844C008F0717 /* LaunchScreen.storyboard */,
+				FC1D94231F48844C008F0717 /* Info.plist */,
+				FC1D941B1F48844C008F0717 /* QWReader.xcdatamodeld */,
+				FC1D940F1F48844C008F0717 /* Supporting Files */,
+			);
+			path = QWReader;
+			sourceTree = "<group>";
+		};
+		FC1D940F1F48844C008F0717 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC1D94101F48844C008F0717 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC393F911F65596E00F37DD8 /* New Group2 */ = {
+			isa = PBXGroup;
+			children = (
+				FC393F921F65598800F37DD8 /* QWEIReadViewController.h */,
+				FC393F931F65598800F37DD8 /* QWEIReadViewController.m */,
+				FC393F951F65599F00F37DD8 /* QWEIReadView.h */,
+				FC393F961F65599F00F37DD8 /* QWEIReadView.m */,
+			);
+			name = "New Group2";
+			sourceTree = "<group>";
+		};
+		FC393F981F662ACF00F37DD8 /* New Group3 */ = {
+			isa = PBXGroup;
+			children = (
+				FC393F991F662AF800F37DD8 /* QWEIFrameParserConfig.h */,
+				FC393F9A1F662AF800F37DD8 /* QWEIFrameParserConfig.m */,
+				FC0917251F6633250081AABA /* QWEIFrameParser.h */,
+				FC0917261F6633250081AABA /* QWEIFrameParser.m */,
+			);
+			name = "New Group3";
+			sourceTree = "<group>";
+		};
+		FC70E0FE1F87D62C00BF31C0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FC70E1021F87DEAA00BF31C0 /* QWEIMenu.h */,
+				FC70E1031F87DEAA00BF31C0 /* QWEIMenu.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC1D940B1F48844C008F0717 /* QWReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC1D94261F48844C008F0717 /* Build configuration list for PBXNativeTarget "QWReader" */;
+			buildPhases = (
+				1EA34C67E71CA8A2E54AA153 /* [CP] Check Pods Manifest.lock */,
+				FC1D94081F48844C008F0717 /* Sources */,
+				FC1D94091F48844C008F0717 /* Frameworks */,
+				FC1D940A1F48844C008F0717 /* Resources */,
+				728463B8F87E3C1A55F897C8 /* [CP] Embed Pods Frameworks */,
+				4A40FD15551B18275DDB3803 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QWReader;
+			productName = QWReader;
+			productReference = FC1D940C1F48844C008F0717 /* QWReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC1D94041F48844C008F0717 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QWEI;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Wei.Chyi;
+				TargetAttributes = {
+					FC1D940B1F48844C008F0717 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4W6BRVT8L7;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FC1D94071F48844C008F0717 /* Build configuration list for PBXProject "QWReader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC1D94031F48844C008F0717;
+			productRefGroup = FC1D940D1F48844C008F0717 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC1D940B1F48844C008F0717 /* QWReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC1D940A1F48844C008F0717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1D94221F48844C008F0717 /* LaunchScreen.storyboard in Resources */,
+				FC1D941F1F48844C008F0717 /* Assets.xcassets in Resources */,
+				FC1D941A1F48844C008F0717 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EA34C67E71CA8A2E54AA153 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4A40FD15551B18275DDB3803 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QWReader/Pods-QWReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		728463B8F87E3C1A55F897C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QWReader/Pods-QWReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC1D94081F48844C008F0717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC0491251F48B4AC008C314E /* QWEINetWorkManager.m in Sources */,
+				FC1D943D1F489F2B008F0717 /* QWEISearchBookController.m in Sources */,
+				FC0491361F4914DF008C314E /* QWEIGetBookDetail.m in Sources */,
+				FC0491391F4916B3008C314E /* QWEIBookDetail.m in Sources */,
+				FC0491331F4913FD008C314E /* QWEIReader.m in Sources */,
+				FC393F901F65270300F37DD8 /* QWEIBookChapterController.m in Sources */,
+				FC0491281F48B560008C314E /* QWEISearchBook.m in Sources */,
+				FC0917271F6633250081AABA /* QWEIFrameParser.m in Sources */,
+				FC1D941D1F48844C008F0717 /* QWReader.xcdatamodeld in Sources */,
+				FC1D94141F48844C008F0717 /* AppDelegate.m in Sources */,
+				FC1D94111F48844C008F0717 /* main.m in Sources */,
+				FC0491421F491C07008C314E /* QWEIPage.m in Sources */,
+				FC393F9B1F662AF800F37DD8 /* QWEIFrameParserConfig.m in Sources */,
+				FC393F971F65599F00F37DD8 /* QWEIReadView.m in Sources */,
+				FC70E1041F87DEAA00BF31C0 /* QWEIMenu.m in Sources */,
+				FC04911E1F48A5F6008C314E /* UIView+QWEIEditFrame.m in Sources */,
+				FC1D942B1F488516008F0717 /* QWEIReaderMainController.m in Sources */,
+				FC393F941F65598800F37DD8 /* QWEIReadViewController.m in Sources */,
+				FC393F7E1F64E2A300F37DD8 /* QWEIBookSource.m in Sources */,
+				FC393F871F6505FF00F37DD8 /* QWEIBookContent.m in Sources */,
+				FC393F8D1F6513DF00F37DD8 /* QWEIBookLinkController.m in Sources */,
+				FC0491301F48BF90008C314E /* QWEIBooksCell.m in Sources */,
+				FC04912C1F48B814008C314E /* QWEIBook.m in Sources */,
+				FC393F841F64FD7A00F37DD8 /* QWEIBookChapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC1D94181F48844C008F0717 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC1D94191F48844C008F0717 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC1D94201F48844C008F0717 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC1D94211F48844C008F0717 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC1D94241F48844C008F0717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QWReader_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FC1D94251F48844C008F0717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QWReader_Prefix.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC1D94271F48844C008F0717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A783357485E16A21F9339F /* Pods-QWReader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4W6BRVT8L7;
+				INFOPLIST_FILE = QWReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wei.chyi.QWReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FC1D94281F48844C008F0717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F601339E24CA533FA2DE1471 /* Pods-QWReader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4W6BRVT8L7;
+				INFOPLIST_FILE = QWReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wei.chyi.QWReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC1D94071F48844C008F0717 /* Build configuration list for PBXProject "QWReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1D94241F48844C008F0717 /* Debug */,
+				FC1D94251F48844C008F0717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC1D94261F48844C008F0717 /* Build configuration list for PBXNativeTarget "QWReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1D94271F48844C008F0717 /* Debug */,
+				FC1D94281F48844C008F0717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC1D941B1F48844C008F0717 /* QWReader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC1D941C1F48844C008F0717 /* QWReader.xcdatamodel */,
+			);
+			currentVersion = FC1D941C1F48844C008F0717 /* QWReader.xcdatamodel */;
+			path = QWReader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FC1D94041F48844C008F0717 /* Project object */;
+}

@@ -1,0 +1,35 @@
+//
+//  QWReader_Prefix.pch
+//  QWReader
+//
+//  Created by Nil.Q_Crackpot on 2017/9/11.
+//  Copyright © 2017年 Wei.Chyi. All rights reserved.
+//
+
+#ifndef QWReader_Prefix_pch
+#define QWReader_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* QWReader_Prefix_pch */
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreText/CoreText.h>
+#define RGB(R, G, B)    [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]
+#define TOP_SPACING 40.0f
+#define BOTTOM_SPACING 40.0f
+#define LEFT_SPACING 20.0f
+#define RIGHT_SPACING  20.0f
+#define MIN_FONT_SIZE 11.0f
+#define MAX_FONT_SIZE 20.0f
+
+
+
+
+#define CONFIG_KEY @"readConfig"
+
+#endif
