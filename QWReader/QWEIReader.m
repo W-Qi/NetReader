@@ -249,6 +249,12 @@
     [self presentViewController:bookLink animated:YES completion:^{}];
 }
 
+#warning 设置页面
+- (void)showSettingView {
+    
+    //设置页面
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
