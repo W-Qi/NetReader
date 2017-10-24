@@ -30,18 +30,18 @@
         
         NSData *configData = [[NSUserDefaults standardUserDefaults] objectForKey:CONFIG_KEY];
         
-        if (configData) {
-            
-            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:configData];
-            
-            QWEIFrameParserConfig *parserConfig = [unarchiver decodeObjectForKey:CONFIG_KEY];
-            [parserConfig addObserver:parserConfig forKeyPath:@"fontSize" options:NSKeyValueObservingOptionNew context:NULL];
-            [parserConfig addObserver:parserConfig forKeyPath:@"lineSpace" options:NSKeyValueObservingOptionNew context:NULL];
-            [parserConfig addObserver:parserConfig forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:NULL];
-            [parserConfig addObserver:parserConfig forKeyPath:@"theme" options:NSKeyValueObservingOptionNew context:NULL];
-            
-            return parserConfig;
-        }
+//        if (configData) {
+//
+//            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:configData];
+//
+//            QWEIFrameParserConfig *parserConfig = [unarchiver decodeObjectForKey:CONFIG_KEY];
+//            [parserConfig addObserver:parserConfig forKeyPath:@"fontSize" options:NSKeyValueObservingOptionNew context:NULL];
+//            [parserConfig addObserver:parserConfig forKeyPath:@"lineSpace" options:NSKeyValueObservingOptionNew context:NULL];
+//            [parserConfig addObserver:parserConfig forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:NULL];
+//            [parserConfig addObserver:parserConfig forKeyPath:@"theme" options:NSKeyValueObservingOptionNew context:NULL];
+//
+//            return parserConfig;
+//        }
         
         _fontSize = 24.f;
         _lineSpace = 20.f;

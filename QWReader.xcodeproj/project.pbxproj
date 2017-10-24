@@ -17,6 +17,7 @@
 		FC0491391F4916B3008C314E /* QWEIBookDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491381F4916B3008C314E /* QWEIBookDetail.m */; };
 		FC0491421F491C07008C314E /* QWEIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491411F491C07008C314E /* QWEIPage.m */; };
 		FC0917271F6633250081AABA /* QWEIFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0917261F6633250081AABA /* QWEIFrameParser.m */; };
+		FC0C7C491F9FA927008DB28D /* zh_cn_fzsek.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FC0C7C471F9FA880008DB28D /* zh_cn_fzsek.TTF */; };
 		FC1D94111F48844C008F0717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94101F48844C008F0717 /* main.m */; };
 		FC1D94141F48844C008F0717 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94131F48844C008F0717 /* AppDelegate.m */; };
 		FC1D941A1F48844C008F0717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1D94181F48844C008F0717 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		FC0917241F6631780081AABA /* QWReader_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QWReader_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		FC0917251F6633250081AABA /* QWEIFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIFrameParser.h; sourceTree = "<group>"; };
 		FC0917261F6633250081AABA /* QWEIFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIFrameParser.m; sourceTree = "<group>"; };
+		FC0C7C471F9FA880008DB28D /* zh_cn_fzsek.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = zh_cn_fzsek.TTF; sourceTree = "<group>"; };
 		FC1D940C1F48844C008F0717 /* QWReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QWReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1D94101F48844C008F0717 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FC1D94121F48844C008F0717 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		FC1D940E1F48844C008F0717 /* QWReader */ = {
 			isa = PBXGroup;
 			children = (
+				FC0C7C471F9FA880008DB28D /* zh_cn_fzsek.TTF */,
 				FC393F981F662ACF00F37DD8 /* New Group3 */,
 				FC393F911F65596E00F37DD8 /* New Group2 */,
 				FC04912D1F48BF7A008C314E /* New Group1 */,
@@ -327,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0C7C491F9FA927008DB28D /* zh_cn_fzsek.TTF in Resources */,
 				FC1D94221F48844C008F0717 /* LaunchScreen.storyboard in Resources */,
 				FC1D941F1F48844C008F0717 /* Assets.xcassets in Resources */,
 				FC1D941A1F48844C008F0717 /* Main.storyboard in Resources */,

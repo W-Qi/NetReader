@@ -15,7 +15,7 @@
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
     NSDictionary *attribute = [self attributesWithConfig:config];
-    [attributedString setAttributes:attribute range:NSMakeRange(0, content.length)];
+    [attributedString addAttributes:attribute range:NSMakeRange(0, content.length)];
     
     CTFramesetterRef setterRef = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attributedString);
     
@@ -33,7 +33,9 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     dict[NSForegroundColorAttributeName] = config.textColor;
-    dict[NSFontAttributeName] = [UIFont systemFontOfSize:config.fontSize];
+//    dict[NSFontAttributeName] = [UIFont systemFontOfSize:config.fontSize];
+    dict[NSFontAttributeName] = [UIFont fontWithName:@"FZShaoEr-M11" size:config.fontSize];
+//    [dict setObject:(id)CFBridgingRelease(CTFontCreateWithName(CFSTR("FZShaoEr-M11"), config.fontSize, NULL)) forKey:(id)kCTFontAttributeName];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = config.lineSpace;
