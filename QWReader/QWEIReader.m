@@ -34,6 +34,8 @@
 
 @property (strong, nonatomic) QWEIMenu *menuView;
 
+@property (copy, nonatomic) NSString *linkSourceID;
+
 @end
 
 @implementation QWEIReader
@@ -97,9 +99,12 @@
         
         if(bookSources.count != 0) {
             
-            [self loadBook:bookSources[0]._id];
+            if (!self.linkSourceID) {
+                
+                self.linkSourceID = bookSources[0]._id;
+            }
+            [self loadBook:self.linkSourceID];
         }
-        
     } andUrl:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
 }
 
@@ -184,6 +189,7 @@
         
         self.pageNo = [[pageMessage valueForKey:@"pageNo"] integerValue];
         _page = [[pageMessage valueForKey:@"page"] integerValue];
+        self.linkSourceID = [pageMessage valueForKey:@"linkSourceID"];
     } else {
 
         self.pageNo = 0;
@@ -238,8 +244,9 @@
 - (void)linkSourceChange:(NSNotification *)notification {
     
     NSString *message = notification.object;
+    self.linkSourceID = message;
     
-    [self loadBook:message];
+    [self loadBook:self.linkSourceID];
 }
 
 - (void)showLinkView {
@@ -297,8 +304,9 @@
     [self removeObserver:self forKeyPath:@"bookContent"];
     
     NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    
     appDocPath = [appDocPath stringByAppendingPathComponent:self.bookID];
+    
+    NSLog(@"文件路径%@", appDocPath);
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDir = FALSE;
@@ -309,12 +317,13 @@
         if (!bCreateDir) {
                 NSLog(@"创建文件夹失败！");
         }
-        NSLog(@"创建文件夹成功，文件路径%@",appDocPath);
+        NSLog(@"创建文件夹成功，文件路径%@", appDocPath);
 	}
     NSString *filePath = [appDocPath stringByAppendingPathComponent:@"pageMessage.plist"];
     NSMutableDictionary *pageMessage = [[NSMutableDictionary alloc] init];
     [pageMessage setValue:@(self.pageNo) forKey:@"pageNo"];
     [pageMessage setValue:@(_page) forKey:@"page"];
+    [pageMessage setValue:self.linkSourceID forKey:@"linkSourceID"];
     [pageMessage writeToFile:filePath atomically:YES];
 }
 
