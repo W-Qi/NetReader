@@ -139,6 +139,7 @@
         NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
         
         [[NSFileManager defaultManager] removeItemAtPath:[appDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", self.books[indexPath.row]._id]] error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:[appDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", self.books[indexPath.row]._id]] error:nil];
         
         [self.books removeObject:self.books[indexPath.row]];
         
