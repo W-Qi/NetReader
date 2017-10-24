@@ -54,14 +54,14 @@
     
     [bottomView addSubview:[self buttonInitWithTitle:@"目录" frame:CGRectMake(10, 0, btnWidth, 64) action:@selector(chapterView)]];
     [bottomView addSubview:[self buttonInitWithTitle:@"夜间" frame:CGRectMake(20 + btnWidth, 0, btnWidth, 64) action:nil]];
-    [bottomView addSubview:[self buttonInitWithTitle:@"设置" frame:CGRectMake(30 + 2 * btnWidth, 0, btnWidth, 64) action:nil]];
+    [bottomView addSubview:[self buttonInitWithTitle:@"设置" frame:CGRectMake(30 + 2 * btnWidth, 0, btnWidth, 64) action:@selector(settingView)]];
     
     [self addSubview:bottomView];
 }
 
 - (void)cannelView {
     
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(dismissCurrentController)]) {
         
         [self.delegate dismissCurrentController];
     }
@@ -69,7 +69,7 @@
 
 - (void)linkView {
     
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(showLinkView)]) {
         
         [self.delegate showLinkView];
     }
@@ -77,13 +77,17 @@
 
 - (void)chapterView {
     
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(showChapterView)]) {
         
         [self.delegate showChapterView];
+    }
+}
+
+- (void)settingView {
+    
+    if ([self.delegate respondsToSelector:@selector(showSettingView)]) {
         
-        //test commit
-        
-        //commit test 
+        [self.delegate showSettingView];
     }
 }
 

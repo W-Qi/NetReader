@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol QWEIMenuDelegate
+@protocol QWEIMenuDelegate <NSObject>
 
 - (void)dismissCurrentController;
 - (void)showLinkView;
 - (void)showChapterView;
+- (void)showSettingView;
 
 @end
 
