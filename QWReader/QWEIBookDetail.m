@@ -15,6 +15,24 @@
 
 @implementation QWEIBookDetail
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:self.bookSources forKey:@"bookSources"];
+    [aCoder encodeObject:self.bookChapters forKey:@"bookChapters"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        self.bookSources = [aDecoder decodeObjectForKey:@"bookSources"];
+        self.bookChapters = [aDecoder decodeObjectForKey:@"bookChapters"];
+    }
+    
+    return self;
+}
 
 
 @end

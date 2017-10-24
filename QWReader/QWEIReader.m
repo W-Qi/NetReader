@@ -103,6 +103,46 @@
     } andUrl:[url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
 }
 
+- (void)loadBook:(NSString *)linkID {
+    
+    self.pageNo = self.pageNo == 0 ? 0 : self.pageNo--;
+    
+    NSString *baseURL = [NSString stringWithFormat:@"http://api.zhuishushenqi.com/toc/%@?view=chapters", linkID];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:baseURL]]];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    NSData *contextData = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText"] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:contextData options:0 error:nil];
+    
+    NSArray *chaptersResult = responseObject[@"chapters"];
+    NSMutableArray <QWEIBookChapter *> *chapters = [NSMutableArray arrayWithCapacity:chaptersResult.count];
+    
+    for (NSDictionary *chapterDic in chaptersResult) {
+        
+        QWEIBookChapter *bookChapter = [QWEIBookChapter bookChapterModelWithDict:chapterDic];
+        [chapters addObject:bookChapter];
+    }
+    
+    self.bookDetail.bookChapters = chapters;
+    
+    [self showContent:self.bookDetail.bookChapters[self.pageNo].link];
+}
+
+- (void)showContent:(NSString *)link {
+    
+    self.beforeBookContent = self.bookContent;
+    
+    [QWEIPage getBookContent:^(QWEIBookContent *bookContent, NSError *error) {
+        
+        self.bookContent = bookContent;
+        
+    } andUrl:[link stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -120,9 +160,6 @@
     })];
     
     [self.view addSubview:self.menuView];
-    
-    self.pageNo = 0;
-    _page = 0;
     self.bookDetail = [[QWEIBookDetail alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(linkSourceChange:) name:@"linkSourceChange" object:nil];
@@ -136,6 +173,22 @@
     self.webView = webView;
     
     [self.view addSubview:webView];
+    
+    NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    appDocPath = [appDocPath stringByAppendingPathComponent:self.bookID];
+    NSString *filePath = [appDocPath stringByAppendingPathComponent:@"pageMessage.plist"];
+    
+    NSDictionary *pageMessage = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    
+    if (pageMessage) {
+        
+        self.pageNo = [[pageMessage valueForKey:@"pageNo"] integerValue];
+        _page = [[pageMessage valueForKey:@"page"] integerValue];
+    } else {
+
+        self.pageNo = 0;
+        _page = 0;
+    }
     
     [self loadBookDetail];
 }
@@ -173,6 +226,8 @@
 
 - (void)bookChapterChange:(NSNotification *)notification {
     
+    _page = 0;
+    
     QWEIBookChapter *selectBookChapter = [notification object];
     
     self.pageNo = [self.bookDetail.bookChapters indexOfObject:selectBookChapter];
@@ -197,46 +252,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)loadBook:(NSString *)linkID {
-    
-    self.pageNo = self.pageNo == 0 ? 0 : self.pageNo--;
-    
-    NSString *baseURL = [NSString stringWithFormat:@"http://api.zhuishushenqi.com/toc/%@?view=chapters", linkID];
-    
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:baseURL]]];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    NSData *contextData = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.innerText"] dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:contextData options:0 error:nil];
-    
-    NSArray *chaptersResult = responseObject[@"chapters"];
-    NSMutableArray <QWEIBookChapter *> *chapters = [NSMutableArray arrayWithCapacity:chaptersResult.count];
-
-    for (NSDictionary *chapterDic in chaptersResult) {
-
-        QWEIBookChapter *bookChapter = [QWEIBookChapter bookChapterModelWithDict:chapterDic];
-        [chapters addObject:bookChapter];
-    }
-    
-    self.bookDetail.bookChapters = chapters;
-
-    [self showContent:self.bookDetail.bookChapters[0].link];
-}
-
-- (void)showContent:(NSString *)link {
-    
-    self.beforeBookContent = self.bookContent;
-    
-    [QWEIPage getBookContent:^(QWEIBookContent *bookContent, NSError *error) {
-        
-        self.bookContent = bookContent;
-        
-    } andUrl:[link stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
 }
 
 - (UIPageViewController *)pageViewController {
@@ -274,6 +289,27 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self removeObserver:self forKeyPath:@"bookContent"];
+    
+    NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+    appDocPath = [appDocPath stringByAppendingPathComponent:self.bookID];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir = FALSE;
+    BOOL isDirExist = [fileManager fileExistsAtPath:appDocPath isDirectory:&isDir];
+    
+	if (!(isDirExist && isDir)) {
+        BOOL bCreateDir = [fileManager createDirectoryAtPath:appDocPath withIntermediateDirectories:YES attributes:nil error:nil];
+        if (!bCreateDir) {
+                NSLog(@"创建文件夹失败！");
+        }
+        NSLog(@"创建文件夹成功，文件路径%@",appDocPath);
+	}
+    NSString *filePath = [appDocPath stringByAppendingPathComponent:@"pageMessage.plist"];
+    NSMutableDictionary *pageMessage = [[NSMutableDictionary alloc] init];
+    [pageMessage setValue:@(self.pageNo) forKey:@"pageNo"];
+    [pageMessage setValue:@(_page) forKey:@"page"];
+    [pageMessage writeToFile:filePath atomically:YES];
 }
 
 /*

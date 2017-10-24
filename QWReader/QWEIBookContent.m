@@ -20,6 +20,27 @@
 
 @implementation QWEIBookContent
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.body forKey:@"body"];
+    [aCoder encodeInteger:self.pageCount forKey:@"pageCount"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        self.title = [aDecoder decodeObjectForKey:@"title"];
+        self.body = [aDecoder decodeObjectForKey:@"body"];
+        self.pageCount = [aDecoder decodeIntegerForKey:@"pageCount"];
+    }
+    
+    return self;
+}
+
 - (NSArray *)properties {
     
     if (_properties == nil) {

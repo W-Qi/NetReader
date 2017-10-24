@@ -10,7 +10,7 @@
 #import "QWEIBookSource.h"
 #import "QWEIBookChapter.h"
 
-@interface QWEIBookDetail : NSObject
+@interface QWEIBookDetail : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSArray<QWEIBookSource *> *bookSources;
 @property (strong, nonatomic) NSArray<QWEIBookChapter *> *bookChapters;

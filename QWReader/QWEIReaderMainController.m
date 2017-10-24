@@ -50,9 +50,9 @@
     
     NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     
-    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:appDocPath];
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:appDocPath error:nil];
     
-    for (NSString *fileName in enumerator) {
+    for (NSString *fileName in files) {
         
         QWEIBook *book = [NSKeyedUnarchiver unarchiveObjectWithFile:[appDocPath stringByAppendingPathComponent:fileName]];
         

@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QWEIBookContent : NSObject
+@interface QWEIBookContent : NSObject <NSCoding>
 
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *body;
-
 @property (nonatomic) NSUInteger pageCount;
 
 + (instancetype)bookContentModelWithDict:(NSDictionary *)dict;
