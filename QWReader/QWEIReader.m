@@ -14,8 +14,9 @@
 #import "QWEIBookChapterController.h"
 #import "QWEIReadViewController.h"
 #import "QWEIMenu.h"
+#import "QWEISettingView.h"
 
-@interface QWEIReader () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIWebViewDelegate, UIGestureRecognizerDelegate, QWEIMenuDelegate>
+@interface QWEIReader () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIWebViewDelegate, UIGestureRecognizerDelegate, QWEIMenuDelegate, QWEISettingViewDelegate>
 {
     NSUInteger _page;
     NSUInteger _beforePageCount;
@@ -33,6 +34,7 @@
 @property (strong, nonatomic) UIWebView *webView;
 
 @property (strong, nonatomic) QWEIMenu *menuView;
+@property (strong, nonatomic) QWEISettingView *settingView;
 
 @property (copy, nonatomic) NSString *linkSourceID;
 
@@ -207,6 +209,7 @@
 - (void)showToolViewController {
     
     self.menuView.hidden = !self.menuView.hidden;
+    self.settingView.hidden = YES;
     
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -218,6 +221,8 @@
     readViewController.content =  [self.bookContent stringOfPage:page];
     readViewController.page = _page;
     readViewController.pageCount = self.bookContent.pageCount;
+    
+    [self saveMessage];
     
     return readViewController;
 }
@@ -260,6 +265,17 @@
 - (void)showSettingView {
     
     //设置页面
+    self.settingView.hidden = !self.settingView.hidden;
+}
+
+- (void)updateContext {
+    
+    double local = _page * 1.00/self.bookContent.pageCount;
+    
+    [self.bookContent updateContext];
+    _page = local * self.bookContent.pageCount;
+    
+    [self.pageViewController setViewControllers:@[[self readViewWithChapter:0 page:_page]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -292,6 +308,20 @@
     return _menuView;
 }
 
+- (QWEISettingView *)settingView {
+    
+    if (!_settingView) {
+        
+        _settingView = [[QWEISettingView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 264, self.view.frame.size.width, 200)];
+        _settingView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.8f];
+        _settingView.delegate = self;
+        _settingView.hidden = YES;
+        [self.view addSubview:_settingView];
+    }
+    
+    return _settingView;
+}
+
 - (void)dismissCurrentController {
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -303,22 +333,27 @@
     
     [self removeObserver:self forKeyPath:@"bookContent"];
     
+    [self saveMessage];
+}
+
+- (void)saveMessage {
+    
     NSString *appDocPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     appDocPath = [appDocPath stringByAppendingPathComponent:self.bookID];
     
     NSLog(@"文件路径%@", appDocPath);
-
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDir = FALSE;
     BOOL isDirExist = [fileManager fileExistsAtPath:appDocPath isDirectory:&isDir];
     
-	if (!(isDirExist && isDir)) {
+    if (!(isDirExist && isDir)) {
         BOOL bCreateDir = [fileManager createDirectoryAtPath:appDocPath withIntermediateDirectories:YES attributes:nil error:nil];
         if (!bCreateDir) {
-                NSLog(@"创建文件夹失败！");
+            NSLog(@"创建文件夹失败！");
         }
         NSLog(@"创建文件夹成功，文件路径%@", appDocPath);
-	}
+    }
     NSString *filePath = [appDocPath stringByAppendingPathComponent:@"pageMessage.plist"];
     NSMutableDictionary *pageMessage = [[NSMutableDictionary alloc] init];
     [pageMessage setValue:@(self.pageNo) forKey:@"pageNo"];

@@ -93,6 +93,11 @@
     
     _body = body;
     
+    [self updateContext];
+}
+
+- (void)updateContext {
+    
     [self paginateWithBounds:CGRectMake(LEFT_SPACING, TOP_SPACING, [UIScreen mainScreen].bounds.size.width - LEFT_SPACING - RIGHT_SPACING, [UIScreen mainScreen].bounds.size.height - TOP_SPACING - BOTTOM_SPACING)];
 }
 

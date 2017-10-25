@@ -17,5 +17,6 @@
 + (instancetype)bookContentModelWithDict:(NSDictionary *)dict;
 
 - (NSString *)stringOfPage:(NSUInteger)index;
+- (void)updateContext;
 
 @end
