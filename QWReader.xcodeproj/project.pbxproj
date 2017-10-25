@@ -18,6 +18,7 @@
 		FC0491421F491C07008C314E /* QWEIPage.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0491411F491C07008C314E /* QWEIPage.m */; };
 		FC0917271F6633250081AABA /* QWEIFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0917261F6633250081AABA /* QWEIFrameParser.m */; };
 		FC0C7C491F9FA927008DB28D /* zh_cn_fzsek.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FC0C7C471F9FA880008DB28D /* zh_cn_fzsek.TTF */; };
+		FC0C7C4C1FA066B2008DB28D /* QWEISettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0C7C4B1FA066B2008DB28D /* QWEISettingView.m */; };
 		FC1D94111F48844C008F0717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94101F48844C008F0717 /* main.m */; };
 		FC1D94141F48844C008F0717 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1D94131F48844C008F0717 /* AppDelegate.m */; };
 		FC1D941A1F48844C008F0717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1D94181F48844C008F0717 /* Main.storyboard */; };
@@ -64,6 +65,8 @@
 		FC0917251F6633250081AABA /* QWEIFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWEIFrameParser.h; sourceTree = "<group>"; };
 		FC0917261F6633250081AABA /* QWEIFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWEIFrameParser.m; sourceTree = "<group>"; };
 		FC0C7C471F9FA880008DB28D /* zh_cn_fzsek.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = zh_cn_fzsek.TTF; sourceTree = "<group>"; };
+		FC0C7C4A1FA066B2008DB28D /* QWEISettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QWEISettingView.h; sourceTree = "<group>"; };
+		FC0C7C4B1FA066B2008DB28D /* QWEISettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QWEISettingView.m; sourceTree = "<group>"; };
 		FC1D940C1F48844C008F0717 /* QWReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QWReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1D94101F48844C008F0717 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FC1D94121F48844C008F0717 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 		FC70E0FE1F87D62C00BF31C0 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				FC0C7C4A1FA066B2008DB28D /* QWEISettingView.h */,
+				FC0C7C4B1FA066B2008DB28D /* QWEISettingView.m */,
 				FC70E1021F87DEAA00BF31C0 /* QWEIMenu.h */,
 				FC70E1031F87DEAA00BF31C0 /* QWEIMenu.m */,
 			);
@@ -414,6 +419,7 @@
 				FC393F871F6505FF00F37DD8 /* QWEIBookContent.m in Sources */,
 				FC393F8D1F6513DF00F37DD8 /* QWEIBookLinkController.m in Sources */,
 				FC0491301F48BF90008C314E /* QWEIBooksCell.m in Sources */,
+				FC0C7C4C1FA066B2008DB28D /* QWEISettingView.m in Sources */,
 				FC04912C1F48B814008C314E /* QWEIBook.m in Sources */,
 				FC393F841F64FD7A00F37DD8 /* QWEIBookChapter.m in Sources */,
 			);

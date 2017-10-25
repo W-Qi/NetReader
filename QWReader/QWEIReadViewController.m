@@ -24,25 +24,27 @@
     [self.view setBackgroundColor:[QWEIFrameParserConfig shareInstance].theme];
     [self.view addSubview:self.readView];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width, 24)];
-    titleLabel.text = self.chapterTitle;
-    [self.view addSubview:titleLabel];
+    [self setupLabelView];
+}
+
+- (void)setupLabelView {
     
-    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, self.view.frame.size.height - 24, 100, 24)];
-    timeLabel.text = [self currentTime];
-    timeLabel.textAlignment = NSTextAlignmentLeft;
-    [self.view addSubview:timeLabel];
-    
-    UILabel *batteryLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, self.view.frame.size.height - 24, 200, 24)];
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
-    batteryLabel.text = [NSString stringWithFormat:@"电量剩余:%.0f%%", [[UIDevice currentDevice] batteryLevel] * 100];
-    batteryLabel.textAlignment = NSTextAlignmentLeft;
-    [self.view addSubview:batteryLabel];
- 
-    UILabel *pageLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 200, self.view.frame.size.height - 24, 200, 24)];
-    pageLabel.text = [NSString stringWithFormat:@"第%lu页，共%lu页", (unsigned long)self.page + 1, (unsigned long)self.pageCount];
-    pageLabel.textAlignment = NSTextAlignmentRight;
-    [self.view addSubview:pageLabel];
+    
+    [self.view addSubview:[self setupLabelWithFrame:CGRectMake(5, 5, self.view.frame.size.width, 24) text:self.chapterTitle textAlignment:NSTextAlignmentLeft]];
+    [self.view addSubview:[self setupLabelWithFrame:CGRectMake(10, self.view.frame.size.height - 24, 100, 24) text:[self currentTime] textAlignment:NSTextAlignmentLeft]];
+    [self.view addSubview:[self setupLabelWithFrame:CGRectMake(70, self.view.frame.size.height - 24, 200, 24) text:[NSString stringWithFormat:@"电量剩余:%.0f%%", [[UIDevice currentDevice] batteryLevel] * 100] textAlignment:NSTextAlignmentLeft]];
+    [self.view addSubview:[self setupLabelWithFrame:CGRectMake(self.view.frame.size.width - 200, self.view.frame.size.height - 24, 200, 24) text:[NSString stringWithFormat:@"第%lu页，共%lu页", (unsigned long)self.page + 1, (unsigned long)self.pageCount] textAlignment:NSTextAlignmentRight]];
+}
+
+- (UILabel *)setupLabelWithFrame:(CGRect)frame text:(NSString *)text textAlignment:(NSTextAlignment)textAlignment {
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    [label setFont:[UIFont fontWithName:@"FZShaoEr-M11" size:18.f]];
+    label.text = text;
+    label.textAlignment = textAlignment;
+    
+    return label;
 }
 
 - (NSString *)currentTime {

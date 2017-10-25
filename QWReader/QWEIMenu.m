@@ -86,7 +86,7 @@
 - (void)settingView {
     
     if ([self.delegate respondsToSelector:@selector(showSettingView)]) {
-        
+
         [self.delegate showSettingView];
     }
 }
