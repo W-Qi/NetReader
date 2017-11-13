@@ -86,6 +86,14 @@
         _beforePageCount = self.bookContent.pageCount - 1;
         self.pageNo++;
         _page = 0;
+        
+        if (self.pageNo > self.bookDetail.bookChapters.count - 1) {
+ 
+            _page = self.bookContent.pageCount - 1;
+            [self dismissCurrentController];
+            return nil;
+        }
+        
         [self showContent:self.bookDetail.bookChapters[self.pageNo].link];
         
         return nil;
@@ -158,7 +166,6 @@
     [QWEIPage getBookContent:^(QWEIBookContent *bookContent, NSError *error) {
         
         self.bookContent = bookContent;
-        
     } andUrl:[link stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
 }
 
@@ -494,6 +501,9 @@
     }
     NSString *filePath = [appDocPath stringByAppendingPathComponent:@"pageMessage.plist"];
     NSMutableDictionary *pageMessage = [[NSMutableDictionary alloc] init];
+    if (self.pageNo > self.bookDetail.bookChapters.count - 1) {
+        self.pageNo = self.bookDetail.bookChapters.count - 1;
+    }
     [pageMessage setValue:@(self.pageNo) forKey:@"pageNo"];
     [pageMessage setValue:@(_page) forKey:@"page"];
     [pageMessage setValue:self.linkSourceID forKey:@"linkSourceID"];
