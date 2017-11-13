@@ -22,12 +22,6 @@
     // Override point for customization after application launch.
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-//    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
-//    NSString *userAgent = [webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-//    NSString *newUserAgent = [userAgent stringByAppendingString:@" native_iOS"];//自定义需要拼接的字符串
-//    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @"UserAgent", nil];
-//    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
  
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
