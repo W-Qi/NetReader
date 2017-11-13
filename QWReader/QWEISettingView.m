@@ -22,6 +22,37 @@
     
     [self addSubview:[self setupBtnWithFrame:CGRectMake(0, 0, 80, 80) title:@"A+" action:@selector(fontSizeUp)]];
     [self addSubview:[self setupBtnWithFrame:CGRectMake(85, 0, 80, 80) title:@"A-" action:@selector(fontSizeDown)]];
+    
+    [self addSubview:[self setupBtnWithFrame:CGRectMake(170, 0, 80, 80) title:@"random" action:@selector(fontColorCancel)]];
+    [self addSubview:[self setupBtnWithFrame:CGRectMake(255, 0, 80, 80) title:@"default" action:@selector(fontColorDefault)]];
+}
+
+- (void)fontColorCancel {
+    
+    QWEIFrameParserConfig *config = [QWEIFrameParserConfig shareInstance];
+    
+    int R = (arc4random() % 256) ;
+    int G = (arc4random() % 256) ;
+    int B = (arc4random() % 256) ;
+    
+    config.textColor = [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:1.f];
+    
+    if ([self.delegate respondsToSelector:@selector(updateContext)]) {
+        
+        [self.delegate updateContext];
+    }
+}
+
+- (void)fontColorDefault {
+    
+    QWEIFrameParserConfig *config = [QWEIFrameParserConfig shareInstance];
+    
+    config.textColor = [UIColor blackColor];
+    
+    if ([self.delegate respondsToSelector:@selector(updateContext)]) {
+        
+        [self.delegate updateContext];
+    }
 }
 
 - (void)setupThemeView {

@@ -23,6 +23,7 @@
     
     [self.view setBackgroundColor:[QWEIFrameParserConfig shareInstance].theme];
     [self.view addSubview:self.readView];
+//    self.view = self.readView;
     
     [self setupLabelView];
 }
@@ -43,6 +44,7 @@
     [label setFont:[UIFont fontWithName:@"FZShaoEr-M11" size:18.f]];
     label.text = text;
     label.textAlignment = textAlignment;
+    label.textColor = [QWEIFrameParserConfig shareInstance].textColor;
     
     return label;
 }

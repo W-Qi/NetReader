@@ -15,11 +15,18 @@
 #import "QWEIReadViewController.h"
 #import "QWEIMenu.h"
 #import "QWEISettingView.h"
+#import "QWEIFrameParserConfig.h"
 
-@interface QWEIReader () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIWebViewDelegate, UIGestureRecognizerDelegate, QWEIMenuDelegate, QWEISettingViewDelegate>
+#import <AVFoundation/AVFoundation.h>
+
+@interface QWEIReader () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIWebViewDelegate, UIGestureRecognizerDelegate, QWEIMenuDelegate, QWEISettingViewDelegate, AVSpeechSynthesizerDelegate>
 {
     NSUInteger _page;
     NSUInteger _beforePageCount;
+    BOOL _isReading;
+    BOOL _isChapterBegin;
+    BOOL _isCam;
+    UIColor *_currentColor;
 }
 
 @property (strong, nonatomic) QWEIBookDetail *bookDetail;
@@ -37,6 +44,11 @@
 @property (strong, nonatomic) QWEISettingView *settingView;
 
 @property (copy, nonatomic) NSString *linkSourceID;
+
+@property (strong, nonatomic) AVSpeechSynthesizer *speechSynthesizer;
+@property (strong, nonatomic) AVSpeechUtterance *speechUtterance;
+
+@property (strong, nonatomic) AVCaptureSession *camSession;
 
 @end
 
@@ -198,6 +210,12 @@
         _page = 0;
     }
     
+    _isReading = NO;
+    _isChapterBegin = NO;
+    _isCam = NO;
+    
+    [self loadCam];
+    
     [self loadBookDetail];
 }
 
@@ -221,6 +239,19 @@
     readViewController.content =  [self.bookContent stringOfPage:page];
     readViewController.page = _page;
     readViewController.pageCount = self.bookContent.pageCount;
+    
+    NSString *readingContent = readViewController.content;
+    
+    if (_isChapterBegin) {
+        
+        readingContent = [NSString stringWithFormat:@"%@。。%@", readViewController.chapterTitle, readViewController.content];
+    }
+    
+    self.speechUtterance = [AVSpeechUtterance speechUtteranceWithString:readingContent];
+    
+    if (self.speechSynthesizer) {
+        [self startReading];
+    }
     
     [self saveMessage];
     
@@ -278,6 +309,108 @@
     [self.pageViewController setViewControllers:@[[self readViewWithChapter:0 page:_page]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
+#warning 阅读文本
+- (void)readContext {
+    
+    _isReading = !_isReading;
+    
+    [self startReading];
+}
+
+- (void)startReading {
+    
+    if (_isReading) {
+        
+        self.speechUtterance.pitchMultiplier = 1;
+        AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+        
+        self.speechUtterance.voice = voice;
+        
+        [self.speechSynthesizer speakUtterance:self.speechUtterance];
+    } else {
+        
+        [self.speechSynthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
+    }
+}
+
+- (void)loadCam {
+    
+    NSError *error = nil;
+    
+    AVCaptureDevice *camDevice = [AVCaptureDevice defaultDeviceWithDeviceType:AVCaptureDeviceTypeBuiltInWideAngleCamera mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+    AVCaptureDeviceInput *camInput = [AVCaptureDeviceInput deviceInputWithDevice:camDevice error:&error];
+    
+    AVCaptureSession *camSession = [[AVCaptureSession alloc] init];
+    
+    if ([camSession canAddInput:camInput]) {
+        [camSession addInput:camInput];
+    }
+    
+    self.camSession = camSession;
+    
+    AVCaptureVideoPreviewLayer *camLayer = [AVCaptureVideoPreviewLayer layerWithSession:camSession];
+    [camLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [camLayer setFrame:self.view.frame];
+    
+    UIView *camView = [[UIView alloc] initWithFrame:self.view.frame];
+    [camView.layer addSublayer:camLayer];
+    
+    [self.view addSubview:camView];
+    [self.view sendSubviewToBack:camView];
+}
+
+- (void)downloadBook {
+    
+    _isCam = !_isCam;
+
+    QWEIFrameParserConfig *config = [QWEIFrameParserConfig shareInstance];
+    if (![config.theme isEqual:[UIColor clearColor]]) {
+        
+        _currentColor = config.theme;
+    }
+    
+    if (_isCam) {
+        
+        config.theme = [UIColor clearColor];
+        [self.camSession startRunning];
+    } else {
+        
+        config.theme = _currentColor;
+        [self.camSession stopRunning];
+    }
+    
+    [self updateContext];
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
+    
+    _page++;
+    
+    if (_page == self.bookContent.pageCount) {
+        
+        _isChapterBegin = YES;
+        _beforePageCount = self.bookContent.pageCount - 1;
+        self.pageNo++;
+        _page = 0;
+        [self showContent:self.bookDetail.bookChapters[self.pageNo].link];
+    } else {
+    
+        _isChapterBegin = NO;
+        [self.pageViewController setViewControllers:@[[self readViewWithChapter:0 page:_page]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    }
+}
+
+- (AVSpeechSynthesizer *)speechSynthesizer {
+    
+    if (!_speechSynthesizer) {
+        
+        _speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+        _speechSynthesizer.delegate = self;
+    }
+    
+    return _speechSynthesizer;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -332,6 +465,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [self removeObserver:self forKeyPath:@"bookContent"];
+    
+    if ([[QWEIFrameParserConfig shareInstance].theme isEqual:[UIColor clearColor]]) {
+        
+        [QWEIFrameParserConfig shareInstance].theme = _currentColor;
+    }
     
     [self saveMessage];
 }

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "QWEIReaderMainController.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -27,7 +28,7 @@
 //    NSString *newUserAgent = [userAgent stringByAppendingString:@" native_iOS"];//自定义需要拼接的字符串
 //    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent, @"UserAgent", nil];
 //    [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
-    
+ 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     QWEIReaderMainController *readerMainController = [[QWEIReaderMainController alloc] init];
@@ -44,6 +45,12 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    NSError *error = nil;
+    
+    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [session setActive:YES error:&error];
 }
 
 

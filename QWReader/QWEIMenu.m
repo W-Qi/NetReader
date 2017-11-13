@@ -33,13 +33,27 @@
     backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     backBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     
-    UIButton *linkBtn = [self buttonInitWithTitle:nil frame:CGRectMake(self.frame.size.width - 160, 20, 150, 44) action:@selector(linkView)];
+    UIButton *linkBtn = [self buttonInitWithTitle:nil frame:CGRectMake(self.frame.size.width - 25, 20, 20, 44) action:@selector(linkView)];
     [linkBtn setImage:[[UIImage imageNamed:@"reader_more"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
     linkBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     linkBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
   
     [topView addSubview:linkBtn];
     [topView addSubview:backBtn];
+    
+    UIButton *readBtn = [self buttonInitWithTitle:nil frame:CGRectMake(self.frame.size.width - 75, 20, 50, 44) action:@selector(readContext)];
+    [readBtn setImage:[[UIImage imageNamed:@"btn_record_recording"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+    readBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    readBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    
+    [topView addSubview:readBtn];
+    
+    UIButton *downloadBtn = [self buttonInitWithTitle:nil frame:CGRectMake(self.frame.size.width - 125, 20, 50, 44) action:@selector(downloadBook)];
+    [downloadBtn setImage:[[UIImage imageNamed:@"img_defaultmusic_bg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+    downloadBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    downloadBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+
+    [topView addSubview:downloadBtn];
     
     [self addSubview:topView];
 }
@@ -57,6 +71,21 @@
     [bottomView addSubview:[self buttonInitWithTitle:@"设置" frame:CGRectMake(30 + 2 * btnWidth, 0, btnWidth, 64) action:@selector(settingView)]];
     
     [self addSubview:bottomView];
+}
+
+- (void)readContext {
+    
+    if ([self.delegate respondsToSelector:@selector(readContext)]) {
+        
+        [self.delegate readContext];
+    }
+}
+
+- (void)downloadBook {
+    
+    if ([self.delegate respondsToSelector:@selector(downloadBook)]) {
+        [self.delegate downloadBook];
+    }
 }
 
 - (void)cannelView {

@@ -14,6 +14,8 @@
 - (void)showLinkView;
 - (void)showChapterView;
 - (void)showSettingView;
+- (void)readContext;
+- (void)downloadBook;
 
 @end
 
